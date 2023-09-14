@@ -1,5 +1,6 @@
 import pandas as pd
 import time
+import random
 
 # Read the CSV into a DataFrame
 df = pd.read_csv("venv/code/Assignment3CSV.csv")
@@ -20,6 +21,7 @@ for index, row in df.iterrows():
     # Create a list with these two elements and append to all_data
     all_data.append([pitcher_throws, answer_here, spin_rate, tilt, induced_vert_break, horz_break])
 
+random.shuffle(all_data)
 
 total_guesses = 0
 correct_guesses = 0
@@ -38,7 +40,10 @@ for i in all_data:
     print("")
     print(i) # Just for developement so I can see what pitch it is
 
+    print("")
+    print("Only enter: 'Fastball', 'Curve', 'Slider', 'Sinker', 'Change', 'Cutter' or 'Splitter'")
     user_guess = input("What do you think this pitch is? ")
+
 
     if user_guess == "q":
         print("")
