@@ -16,10 +16,11 @@ for index, row in df.iterrows():
     tilt = row['Tilt']
     induced_vert_break = row['InducedVertBreak']
     horz_break = row['HorzBreak']
+    velocity = row['RelSpeed']
 
 
     # Create a list with these two elements and append to all_data
-    all_data.append([pitcher_throws, answer_here, spin_rate, tilt, induced_vert_break, horz_break])
+    all_data.append([pitcher_throws, answer_here, spin_rate, tilt, induced_vert_break, horz_break, velocity])
 
 random.shuffle(all_data)
 
@@ -32,22 +33,28 @@ for i in all_data:
     print("")
 
     print("Pitcher Throws: " + i[0])
+    print("Velocity: " + str(round(i[6], 1)) + " mph")
     print("Induced Vertical Break: " + str(round(i[4], 1)) + " inches")
     print("Horizontal Break: " + str(round(i[5], 1)) + " inches")
     print("Spin Rate: " + str(round(i[2], 0)))
     print("Tilt: " + str(i[3]))
 
     print("")
-    print(i) # Just for developement so I can see what pitch it is
+    #print(i) # Just for developement so I can see what pitch it is
 
     print("")
-    print("Only enter: 'Fastball', 'Curve', 'Slider', 'Sinker', 'Change', 'Cutter' or 'Splitter'")
+    print("Only enter: 'Fastball', 'Curve', 'Slider', 'Sinker', 'Change', 'Cutter', 'Splitter' or 'q'")
     user_guess = input("What do you think this pitch is? ")
 
 
     if user_guess == "q":
         print("")
+        print("---------------------------------------------")
+        print("")
         print("You guessed a total of " + str(total_guesses) + " times, " + str(correct_guesses) + " were correct and " + str(total_guesses - correct_guesses) + " were wrong.")
+        print("You got " + str(round(correct_guesses/total_guesses*100,1)) + "% correct.")
+        print("")
+        print("---------------------------------------------")
         break
     else:
         total_guesses += 1
