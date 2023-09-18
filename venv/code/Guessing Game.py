@@ -22,7 +22,7 @@ for index, row in df.iterrows():
     # Create a list with these two elements and append to all_data
     all_data.append([pitcher_throws, answer_here, spin_rate, tilt, induced_vert_break, horz_break, velocity])
 
-random.shuffle(all_data)
+random.shuffle(all_data) # Shuffle pitches into a random order
 
 total_guesses = 0
 correct_guesses = 0
