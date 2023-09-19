@@ -28,6 +28,7 @@ def get_Data(df):
 
 def new_Pitch(i):
     print("---------------------------------------------")
+    print("---------------------------------------------")
     print(f"Pitch number: {total_guesses + 1}")
     print(f"Pitcher Throws: {i[0]}")
     print(f"Velocity: {round(i[6], 1)} mph")
@@ -36,25 +37,37 @@ def new_Pitch(i):
     print(f"Spin Rate: {round(i[2], 0)}")
     print(f"Tilt: {i[3]}")
     print("")
-    print("Only enter: 'Fastball', 'Curve', 'Slider', 'Sinker', 'Change', 'Cutter', 'Splitter' or 'q'")
+    print("Only enter: 'Fastball', 'Curve', 'Slider', 'Sinker', 'Change', 'Cutter', 'Splitter' or 'q'.")
 
-
+# Checking the user's guess and increment counter(s)
 def check_Guess(correct_Pitch, user_Guess):
     global total_guesses, correct_guesses
     total_guesses += 1
 
     if correct_Pitch.lower() == user_Guess.lower():
         correct_guesses += 1
+        print("Correct!")
+        print("") # New line
+
+        time.sleep(2)
         return True
     else:
-        print(f"Wrong! It was {correct_Pitch}")
+        print(f"Wrong! It was a {correct_Pitch}.")
+        print("") # New line
+
+        time.sleep(2)
         return False
 
 
 def end_Game():
     print("---------------------------------------------")
-    print(f"You guessed a total of {total_guesses} times, {correct_guesses} were correct and {total_guesses - correct_guesses} were wrong.")
-    print(f"You got {round((correct_guesses / total_guesses) * 100, 1)}% correct.")
+    print(f"You guessed a total of {total_guesses} times; {correct_guesses} were correct and {total_guesses - correct_guesses} were wrong.")
+
+    # Should never divide by zero
+    if total_guesses != 0:
+        print(f"You got {round((correct_guesses / total_guesses) * 100, 1)}% correct.")
+    else: 
+        print(f"You got 0% correct.")
     print("---------------------------------------------")
 
 
@@ -72,3 +85,4 @@ if csv_file is not None:
             break
         else:
             check_Guess(i[1], user_guess)
+
