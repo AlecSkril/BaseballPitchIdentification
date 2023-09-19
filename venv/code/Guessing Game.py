@@ -3,7 +3,7 @@ import time
 import random
 
 # Read the CSV into a DataFrame
-df = pd.read_csv("venv/code/Assignment3CSV.csv")
+df = pd.read_csv("Assignment3CSV.csv")
 
 # Create an empty list to hold the lists of pairs
 all_data = []
@@ -24,8 +24,8 @@ for index, row in df.iterrows():
 
 random.shuffle(all_data) # Shuffle pitches into a random order
 
-total_guesses = 0
-correct_guesses = 0
+total_guesses = 0 # total amount of guesses
+correct_guesses = 0 # amount of correct guesses
 
 for i in all_data:
     print("---------------------------------------------")
@@ -47,7 +47,7 @@ for i in all_data:
     user_guess = input("What do you think this pitch is? ")
 
 
-    if user_guess == "q":
+    if user_guess == "q": # if the user presses 'q', this will run
         print("")
         print("---------------------------------------------")
         print("")
