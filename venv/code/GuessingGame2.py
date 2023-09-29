@@ -15,7 +15,7 @@ def import_CSV(file_path):
         print(f"CSV file could not be imported correctly: {e}")
         return None
 
-
+# Create pandas dataframe from csv file
 def get_Data(df):
     for _, row in df.iterrows():
         all_data.append([
@@ -47,13 +47,13 @@ def check_Guess(correct_Pitch, user_Guess):
     if correct_Pitch.lower() == user_Guess.lower():
         correct_guesses += 1
         print("Correct!")
-        print("") # New line
+        print("") # Print new line
 
         time.sleep(2)
         return True
     else:
         print(f"Wrong! It was a {correct_Pitch}.")
-        print("") # New line
+        print("") # Print new line
 
         time.sleep(2)
         return False
