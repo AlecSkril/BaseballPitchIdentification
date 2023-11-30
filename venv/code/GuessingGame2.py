@@ -25,7 +25,7 @@ def get_Data(df):
     random.shuffle(all_data)
     return all_data
 
-
+# Text will be printed for every new pitch
 def new_Pitch(i):
     print("---------------------------------------------")
     print("---------------------------------------------")
@@ -58,7 +58,7 @@ def check_Guess(correct_Pitch, user_Guess):
         time.sleep(2)
         return False
 
-
+# If the user enters 'q', this function is called
 def end_Game():
     print("---------------------------------------------")
     print(f"You guessed a total of {total_guesses} times; {correct_guesses} were correct and {total_guesses - correct_guesses} were wrong.")
@@ -71,7 +71,7 @@ def end_Game():
     print("---------------------------------------------")
 
 
-csv_file = import_CSV('Assignment3CSV.csv')
+csv_file = import_CSV('Assignment3CSV.csv') # If using a different CSV file, enter the name or path into here
 
 if csv_file is not None:
     all_data = get_Data(csv_file)
